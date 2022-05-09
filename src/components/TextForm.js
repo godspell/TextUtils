@@ -61,7 +61,7 @@ export default function TextForm(props) {
             value={text}
             onChange={handleOnChange}
             style={{
-              backgroundColor: props.mode === "dark" ? "grey" : "white",
+              backgroundColor: props.mode === "dark" ? "#3A3845" : "white",
               color: props.mode === "dark" ? "white" : "#042743",
             }}
             id="myBox"
@@ -103,7 +103,11 @@ export default function TextForm(props) {
         </p>
         <p>{0.008 * text.split(" ").length - 0.008} Minutes read Time</p>
         <h2>Preview</h2>
-        <p>{text.length > 0 ? text : "Write something in the textbox to preview it here."}</p>
+        <p>
+          {text.length > 0
+            ? text
+            : "Write something in the textbox to preview it here."}
+        </p>
       </div>
     </>
   );
