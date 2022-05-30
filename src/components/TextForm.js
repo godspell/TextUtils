@@ -68,19 +68,19 @@ export default function TextForm(props) {
             rows="8"
           ></textarea>
         </div>
-        <button className="btn btn-primary mx-2" onClick={handleUpClick}>
+        <button disabled = {text.length === 0} className="btn btn-primary mx-2 my-2" onClick={handleUpClick}>
           Convert to Uppercase
         </button>
-        <button className="btn btn-primary mx-2" onClick={handleloClick}>
+        <button disabled = {text.length === 0} className="btn btn-primary mx-2 my-2" onClick={handleloClick}>
           Convert to Lowercase
         </button>
-        <button className="btn btn-primary mx-2" onClick={handleclearClick}>
+        <button disabled = {text.length === 0} className="btn btn-primary mx-2 my-2" onClick={handleclearClick}>
           Clear Text
         </button>
-        <button className="btn btn-primary mx-2" onClick={handleCopy}>
+        <button disabled = {text.length === 0} className="btn btn-primary mx-2 my-2" onClick={handleCopy}>
           Copy Text
         </button>
-        <button className="btn btn-primary mx-2" onClick={handleExtraSpaces}>
+        <button disabled = {text.length === 0} className="btn btn-primary mx-2 my-2" onClick={handleExtraSpaces}>
           Remove Extra Space
         </button>
         <button
@@ -99,12 +99,12 @@ export default function TextForm(props) {
       >
         <h2>Your text summary</h2>
         <p>
-          {text.split(" ").length - 1} words {text.length} characters
+          {text.split(" ").filter((element)=>{return element.length !== 0}).length} words {text.length} characters
         </p>
-        <p>{0.008 * text.split(" ").length - 0.008} Minutes read Time</p>
+        <p>{0.008 * text.split(" ").filter((element)=>{return element.length !== 0}).length} Minutes read Time</p>
         <h2>Preview</h2>
         <p>
-          {text.length > 0 ? text : "Write something in the textbox to preview it here."}
+          {text.length > 0 ? text : "Nothing to preview."}
         </p>
       </div>
     </>
